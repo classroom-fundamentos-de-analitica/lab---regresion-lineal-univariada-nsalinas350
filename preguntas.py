@@ -99,6 +99,7 @@ def pregunta_03():
 
     # Imprima el R^2 del modelo con 4 decimales
     print(reg.score(X_fertility.reshape(-1, 1), y_life).round(4))
+    
 
 
 def pregunta_04():

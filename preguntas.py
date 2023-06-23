@@ -39,66 +39,66 @@ def pregunta_01():
 
 
 def pregunta_02():
-    """
-    En este punto se realiza la impresión de algunas estadísticas básicas
-    Complete el código presentado a continuación.
-    """
+    # """
+    # En este punto se realiza la impresión de algunas estadísticas básicas
+    # Complete el código presentado a continuación.
+    # """
 
-    # Lea el archivo `gm_2008_region.csv` y asignelo al DataFrame `df`
-    df = pd.read_csv("gm_2008_region.csv")
+    # # Lea el archivo `gm_2008_region.csv` y asignelo al DataFrame `df`
+    # df = pd.read_csv("gm_2008_region.csv")
 
-    # Imprima las dimensiones del DataFrame
-    print(df.shape)
+    # # Imprima las dimensiones del DataFrame
+    # print(df.shape)
 
-    # Imprima la correlación entre las columnas `life` y `fertility` con 4 decimales.
-    print(df["life"].corr(df["fertility"]).round(4))
+    # # Imprima la correlación entre las columnas `life` y `fertility` con 4 decimales.
+    # print(df["life"].corr(df["fertility"]).round(4))
 
-    # Imprima la media de la columna `life` con 4 decimales.
-    print(df["life"].mean().round(4))
+    # # Imprima la media de la columna `life` con 4 decimales.
+    # print(df["life"].mean().round(4))
 
-    # Imprima el tipo de dato de la columna `fertility`.
-    print(df["fertility"].dtype)
+    # # Imprima el tipo de dato de la columna `fertility`.
+    # print(df["fertility"].dtype)
 
-    # Imprima la correlación entre las columnas `GDP` y `life` con 4 decimales.
-    print(df["GDP"].corr(df["life"]).round(4))
+    # # Imprima la correlación entre las columnas `GDP` y `life` con 4 decimales.
+    # print(df["GDP"].corr(df["life"]).round(4))
 
 
 def pregunta_03():
-    """
-    Entrenamiento del modelo sobre todo el conjunto de datos.
-    Complete el código presentado a continuación.
-    """
+    # """
+    # Entrenamiento del modelo sobre todo el conjunto de datos.
+    # Complete el código presentado a continuación.
+    # """
 
-    # Lea el archivo `gm_2008_region.csv` y asignelo al DataFrame `df`
-    df = pd.read_csv("gm_2008_region.csv")
+    # # Lea el archivo `gm_2008_region.csv` y asignelo al DataFrame `df`
+    # df = pd.read_csv("gm_2008_region.csv")
 
-    # Asigne a la variable los valores de la columna `fertility`
-    X_fertility = df["fertility"].values
+    # # Asigne a la variable los valores de la columna `fertility`
+    # X_fertility = df["fertility"].values
 
-    # Asigne a la variable los valores de la columna `life`
-    y_life = df["life"].values
+    # # Asigne a la variable los valores de la columna `life`
+    # y_life = df["life"].values
 
-    # Importe LinearRegression
-    from sklearn.linear_model import LinearRegression
+    # # Importe LinearRegression
+    # from sklearn.linear_model import LinearRegression
 
-    # Cree una instancia del modelo de regresión lineal
-    reg = LinearRegression()
+    # # Cree una instancia del modelo de regresión lineal
+    # reg = LinearRegression()
 
-    # Cree El espacio de predicción. Esto es, use linspace para crear
-    # un vector con valores entre el máximo y el mínimo de X_fertility
-    prediction_space = np.linspace(
-        X_fertility.min(),
-        X_fertility.max(),
-    ).reshape(-1, 1)
+    # # Cree El espacio de predicción. Esto es, use linspace para crear
+    # # un vector con valores entre el máximo y el mínimo de X_fertility
+    # prediction_space = np.linspace(
+    #     X_fertility.min(),
+    #     X_fertility.max(),
+    # ).reshape(-1, 1)
 
-    # Entrene el modelo usando X_fertility y y_life
-    reg.fit(X_fertility.reshape(-1, 1), y_life)
+    # # Entrene el modelo usando X_fertility y y_life
+    # reg.fit(X_fertility.reshape(-1, 1), y_life)
 
-    # Compute las predicciones para el espacio de predicción
-    y_pred = reg.predict(prediction_space)
+    # # Compute las predicciones para el espacio de predicción
+    # y_pred = reg.predict(prediction_space)
 
-    # Imprima el R^2 del modelo con 4 decimales
-    print(reg.score(X_fertility.reshape(-1, 1), y_life).round(4))
+    # # Imprima el R^2 del modelo con 4 decimales
+    # print(reg.score(X_fertility.reshape(-1, 1), y_life).round(4))
     
 
 

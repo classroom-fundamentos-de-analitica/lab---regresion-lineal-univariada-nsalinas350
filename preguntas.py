@@ -1,9 +1,7 @@
 """
 Regresión Lineal Univariada
 -----------------------------------------------------------------------------------------
-
 En este laboratio se construirá un modelo de regresión lineal univariado.
-
 """
 import numpy as np
 import pandas as pd
@@ -30,7 +28,7 @@ def pregunta_01():
     # Transforme `y` a un array de numpy usando reshape
     y_reshaped = y.reshape(-1, 1)
 
-    # Transforme `X` a un array de numpy usando reshape
+    # Trasforme `X` a un array de numpy usando reshape
     X_reshaped = X.reshape(-1, 1)
 
     # Imprima las nuevas dimensiones de `y`
@@ -53,20 +51,16 @@ def pregunta_02():
     print(df.shape)
 
     # Imprima la correlación entre las columnas `life` y `fertility` con 4 decimales.
-    correlation_life_fertility = df["life"].corr(df["fertility"])
-    print(round(correlation_life_fertility, 4))
+    print(df["life"].corr(df["fertility"]).round(4))
 
     # Imprima la media de la columna `life` con 4 decimales.
-    mean_life = df["life"].mean()
-    print(round(mean_life, 4))
+    print(df["life"].mean().round(4))
 
     # Imprima el tipo de dato de la columna `fertility`.
-    data_type_fertility = df["fertility"].dtype
-    print(data_type_fertility)
+    print(df["fertility"].dtype)
 
     # Imprima la correlación entre las columnas `GDP` y `life` con 4 decimales.
-    correlation_gdp_life = df["GDP"].corr(df["life"])
-    print(round(correlation_gdp_life, 4))
+    print(df["GDP"].corr(df["life"]).round(4))
 
 
 def pregunta_03():
@@ -75,7 +69,7 @@ def pregunta_03():
     Complete el código presentado a continuación.
     """
 
-    # Lea el archivo `gm_2008_region.csv` y asígnelo al DataFrame `df`
+    # Lea el archivo `gm_2008_region.csv` y asignelo al DataFrame `df`
     df = pd.read_csv("gm_2008_region.csv")
 
     # Asigne a la variable los valores de la columna `fertility`
@@ -90,11 +84,11 @@ def pregunta_03():
     # Cree una instancia del modelo de regresión lineal
     reg = LinearRegression()
 
-    # Cree el espacio de predicción. Esto es, use linspace para crear
+    # Cree El espacio de predicción. Esto es, use linspace para crear
     # un vector con valores entre el máximo y el mínimo de X_fertility
     prediction_space = np.linspace(
-        min(X_fertility),
-        max(X_fertility),
+        X_fertility.min(),
+        X_fertility.max(),
     ).reshape(-1, 1)
 
     # Entrene el modelo usando X_fertility y y_life
@@ -120,7 +114,7 @@ def pregunta_04():
     from sklearn.model_selection import train_test_split
     from sklearn.metrics import mean_squared_error
 
-    # Lea el archivo `gm_2008_region.csv` y asígnelo al DataFrame `df`
+    # Lea el archivo `gm_2008_region.csv` y asignelo al DataFrame `df`
     df = pd.read_csv("gm_2008_region.csv")
 
     # Asigne a la variable los valores de la columna `fertility`
@@ -131,7 +125,7 @@ def pregunta_04():
 
     # Divida los datos de entrenamiento y prueba. La semilla del generador de números
     # aleatorios es 53. El tamaño de la muestra de entrenamiento es del 80%
-    (X_train, X_test, y_train, y_test) = train_test_split(
+    (X_train, X_test, y_train, y_test,) = train_test_split(
         X_fertility.reshape(-1, 1),
         y_life,
         test_size=0.2,

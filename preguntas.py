@@ -51,20 +51,16 @@ def pregunta_02():
     print(df.shape)
 
     # Imprima la correlación entre las columnas `life` y `fertility` con 4 decimales.
-    correlation = df["life"].corr(df["fertility"])
-    print("{:.4f}".format(correlation))
+    print("{:.4f}".format(df["life"].corr(df["fertility"])))
 
     # Imprima la media de la columna `life` con 4 decimales.
-    mean_life = df["life"].mean()
-    print("{:.4f}".format(mean_life))
+    print("{:.4f}".format(df["life"].mean()))
 
     # Imprima el tipo de dato de la columna `fertility`.
-    fertility_dtype = type(df["fertility"])
-    print(fertility_dtype)
+    print(type(df["fertility"]))
 
     # Imprima la correlación entre las columnas `GDP` y `life` con 4 decimales.
-    correlation_gdp_life = df["GDP"].corr(df["life"])
-    print("{:.4f}".format(correlation_gdp_life))
+    print("{:.4f}".format(df["GDP"].corr(df["life"])))
 
 
 def pregunta_03():
@@ -102,9 +98,8 @@ def pregunta_03():
     y_pred = reg.predict(prediction_space)
 
     # Imprima el R^2 del modelo con 4 decimales
-    r2_score = reg.score(X_fertility.reshape(-1, 1), y_life)
-    print("{:.4f}".format(r2_score))
-    
+    print(reg.score(X_fertility.reshape(-1, 1), y_life).round(4))
+
 
 def pregunta_04():
     """

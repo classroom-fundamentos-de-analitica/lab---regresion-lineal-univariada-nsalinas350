@@ -87,18 +87,18 @@ def pregunta_03():
     # Cree una instancia del modelo de regresión lineal
     reg = LinearRegression()
 
-    # # Cree El espacio de predicción. Esto es, use linspace para crear
-    # # un vector con valores entre el máximo y el mínimo de X_fertility
-    # prediction_space = np.linspace(
-    #     min(X_fertility),
-    #     max(X_fertility),
-    # ).reshape(-1, 1)
+    # Cree El espacio de predicción. Esto es, use linspace para crear
+    # un vector con valores entre el máximo y el mínimo de X_fertility
+    prediction_space = np.linspace(
+        min(X_fertility),
+        max(X_fertility),
+    ).reshape(-1, 1)
 
     # Entrene el modelo usando X_fertility y y_life
     reg.fit(X_fertility.reshape(-1, 1), y_life)
 
-    # # Compute las predicciones para el espacio de predicción
-    # y_pred = reg.predict(prediction_space)
+    # Compute las predicciones para el espacio de predicción
+    y_pred = reg.predict(prediction_space)
 
     # Imprima el R^2 del modelo con 4 decimales
     r2_score = reg.score(X_fertility.reshape(-1, 1), y_life)
